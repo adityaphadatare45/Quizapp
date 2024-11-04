@@ -1,38 +1,38 @@
-
+   // import the neccesary packeges
 import 'package:flutter/material.dart';
-
 import 'package:google_fonts/google_fonts.dart';
-
-//import 'package:adv_basics/questions_summary/question_identifier.dart';
 import 'package:quizapp/questions_summary/question_identifier.dart';
 
 class SummaryItem extends StatelessWidget {
-  const SummaryItem(this.itemData, {super.key});
+  const SummaryItem( // constructor 
+    this.itemData, // constructor take itemdata as argument and initializes it 
+     {super.key} // passes key to the parent widget 
+     );
 
-  final Map<String, Object> itemData;
+  final Map<String, Object> itemData; // variable declaration and initialization 
 
-  @override
-  Widget build(BuildContext context) {
-    final isCorrectAnswer =
+  @override // build method 
+  Widget build(BuildContext context) { 
+    final isCorrectAnswer =                // matches with the correct answer 
         itemData['user_answer'] == itemData['correct_answer'];
 
-    return Padding(
+    return Padding(   // adds vertical padding around the row widget 
       padding: const EdgeInsets.symmetric(
         vertical: 8,
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(         // adds row 
+        crossAxisAlignment: CrossAxisAlignment.start, // alignes the widget 
         children: [
-          QuestionIdentifier(
+          QuestionIdentifier(  // custom widget that shows answer is corrct or not 
             isCorrectAnswer: isCorrectAnswer,
             questionIndex: itemData['question'] as int,
           ),
-          const SizedBox(width: 20),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
+          const SizedBox(width: 20), // adds spacing 
+          Expanded(                 // allows to column to take remaining space 
+            child: Column( 
+              crossAxisAlignment: CrossAxisAlignment.start, // gives alignment to column 
+              children: [ 
+                Text(                            // text widget 
                   itemData['question'] as String,
                   style: GoogleFonts.lato(
                     color: Colors.white,
@@ -43,14 +43,18 @@ class SummaryItem extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                Text(itemData['user_answer'] as String,
+                Text(                           // dispalys the users answers
+                  itemData['user_answer'] as String,
                     style: const TextStyle(
                       color: Color.fromARGB(255, 202, 171, 252),
-                    )),
-                Text(itemData['correct_answer'] as String,
+                    )
+                  ),
+                Text(                          // displays the corrct answers
+                  itemData['correct_answer'] as String,
                     style: const TextStyle(
                       color: Color.fromARGB(255, 181, 254, 246),
-                    )),
+                    )
+                  ),
               ],
             ),
           ),

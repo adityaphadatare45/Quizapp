@@ -1,6 +1,4 @@
 
-// ignore: depend_on_referenced_packages
-//import 'package:adv_basics/models/quiz_question.dart';
 import 'package:quizapp/models/quiz_questions.dart';
 
 const questions = [

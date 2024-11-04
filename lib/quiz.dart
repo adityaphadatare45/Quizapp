@@ -1,10 +1,5 @@
 
 import 'package:flutter/material.dart';
-
-/*import 'package:adv_basics/start_screen.dart';
-import 'package:adv_basics/questions_screen.dart';
-import 'package:adv_basics/data/questions.dart';
-import 'package:adv_basics/results_screen.dart';*/
 import 'package:quizapp/data/questions.dart';
 import 'package:quizapp/question_screen.dart';
 import 'package:quizapp/result_screen.dart';
@@ -20,7 +15,7 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  List<String> _selectedAnswers = [];
+  final List<String> _selectedAnswers = [];
   var _activeScreen = 'start-screen';
 
   void _switchScreen() {
